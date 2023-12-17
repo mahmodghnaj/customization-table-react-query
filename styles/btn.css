@@ -1,0 +1,53 @@
+@layer components {
+  .btn {
+    @apply font-semibold no-underline gap-2 inline-flex flex-shrink-0 cursor-pointer select-none flex-wrap items-center justify-center border-transparent text-center transition duration-200 ease-in-out rounded-md h-12 px-4 text-sm min-h-[3rem];
+    line-height: 1em;
+    border-width: 1px;
+    animation: button-pop 0.25s ease-out;
+    text-transform: uppercase;
+
+    &:active:hover,
+    &:active:focus {
+      animation: button-pop 0s ease-out;
+      transform: scale(0.97);
+    }
+
+    @apply border-base-200 bg-base-200 text-base-content no-underline outline-base-content;
+
+    @media (hover: hover) {
+      &:hover {
+        @apply border-base-300 bg-base-300;
+      }
+    }
+    &-active {
+      @apply border-primary bg-primary text-primary-content;
+      @apply appearance-none;
+      @media (hover: hover) {
+        &:hover {
+          @apply border-primary bg-primary;
+        }
+      }
+      &:focus-visible {
+        @apply outline-primary;
+      }
+    }
+    &:focus-visible {
+      @apply outline outline-2 outline-offset-2;
+    }
+    &-square {
+      @apply h-12 w-12 p-0;
+    }
+  }
+
+  @keyframes button-pop {
+    0% {
+      transform: scale(0.98);
+    }
+    40% {
+      transform: scale(1.02);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+}

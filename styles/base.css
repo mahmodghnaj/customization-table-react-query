@@ -1,0 +1,11 @@
+body,
+html {
+  height: 100%;
+  margin: 0;
+  background-color: #1d232a;
+  color: #a6adbb;
+}
+#__next,
+#root {
+  height: 100%;
+}

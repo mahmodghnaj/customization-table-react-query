@@ -1,0 +1,59 @@
+.table {
+  @apply relative w-full;
+  :where(.table-pin-rows thead tr) {
+    @apply sticky top-0 bg-base-100 z-[1];
+  }
+  :where(.table-pin-rows tfoot tr) {
+    @apply sticky bottom-0 bg-base-100 z-[1];
+  }
+  :where(.table-pin-cols tr th) {
+    @apply sticky left-0 right-0 bg-base-100;
+  }
+
+  @apply text-left rounded-md text-sm;
+  :where(th, td) {
+    @apply px-4 py-3 align-middle border-b min-w-[150px] max-w-[200px] overflow-hidden text-ellipsis whitespace-nowrap;
+  }
+  tr.active,
+  tr.active:nth-child(even),
+  &-zebra tbody tr:nth-child(even) {
+    @apply bg-base-200;
+  }
+  tr.hover,
+  tr.hover:nth-child(even) {
+    @apply [@media(hover:hover)]:hover:bg-base-200;
+  }
+
+  &-zebra {
+    tr.active,
+    tr.active:nth-child(even),
+    &-zebra tbody tr:nth-child(even) {
+      @apply bg-base-300;
+    }
+  }
+  &-zebra tr.hover,
+  &-zebra tr.hover:nth-child(even) {
+    @apply [@media(hover:hover)]:hover:bg-base-300;
+  }
+
+  :where(thead, tbody) {
+    :where(tr:not(:last-child)),
+    :where(tr:first-child:last-child) {
+      @apply border-b border-b-base-200;
+    }
+  }
+
+  :where(thead, tfoot) {
+    @apply text-xs font-bold text-base-content/60 whitespace-nowrap;
+  }
+}
+.table-scroll::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+.table-scroll::-webkit-scrollbar-thumb {
+  @apply bg-base-300 rounded-md;
+}
+.table-scroll::-webkit-scrollbar-track {
+  @apply bg-base-content rounded-md;
+}
