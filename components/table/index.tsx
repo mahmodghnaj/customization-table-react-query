@@ -6,7 +6,6 @@ import React, {
 } from "react";
 import {
   ComponentProps,
-  TableHandle,
   propTypesAction,
   propTypesClassName,
   propTypesColumn,

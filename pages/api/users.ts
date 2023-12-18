@@ -72,11 +72,18 @@ export default function handler(
       filteredData.sort((a, b) => {
         const aValue = a[sortBy as keyof PersonData];
         const bValue = b[sortBy as keyof PersonData];
-
-        if (sortOrder === "desc") {
-          return bValue.localeCompare(aValue);
+        if (typeof aValue === "string" && typeof bValue === "string") {
+          if (sortOrder === "desc") {
+            return bValue.localeCompare(aValue);
+          } else {
+            return aValue.localeCompare(bValue);
+          }
         } else {
-          return aValue.localeCompare(bValue);
+          if (sortOrder === "desc") {
+            return bValue > aValue ? -1 : 1;
+          } else {
+            return aValue > bValue ? -1 : 1;
+          }
         }
       });
     }
