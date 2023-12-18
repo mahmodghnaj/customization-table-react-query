@@ -1,7 +1,7 @@
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { QueryClient, QueryClientProvider } from "react-query";
 
 export const queryClient = new QueryClient({
@@ -14,9 +14,13 @@ export const queryClient = new QueryClient({
 export default function App({ Component, pageProps }: AppProps) {
   const [queryClientState] = useState(queryClient);
   const router = useRouter();
+  const [ready, setReady] = useState(false);
+  useEffect(() => {
+    setReady(router.isReady);
+  }, [router.isReady]);
   return (
     <QueryClientProvider client={queryClientState}>
-      {router.isReady && <Component {...pageProps} />}
+      {ready && <Component {...pageProps} />}
     </QueryClientProvider>
   );
 }
