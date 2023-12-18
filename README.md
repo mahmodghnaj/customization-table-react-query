@@ -14,6 +14,6 @@ A customizable table component built using React Query, Tailwind CSS, and integr
 
 - [Next.js](https://nextjs.org/): A React framework for building server-side rendered and statically generated applications.
 - [Tailwind CSS](https://tailwindcss.com/): A utility-first CSS framework for rapidly building custom user interfaces.
-- [ReactQuery] (https://tanstack.com/query)
+- [ReactQuery](https://tanstack.com/query)
 
 <img width="1552" alt="Table" src="/public/table.jpeg">
