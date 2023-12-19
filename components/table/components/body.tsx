@@ -34,10 +34,9 @@ const Body: FC<BodyProps> = ({ data, columns, actions, showFooter }) => {
       {columns.map((column, columnIndex) =>
         renderCell(column, row, columnIndex)
       )}
-      <th className="flex  items-center justify-center">
-        {actions &&
-          actions.length &&
-          actions.map((action) => (
+      {actions && actions.length && (
+        <th className="flex  items-center justify-center">
+          {actions.map((action) => (
             <button
               key={action.name}
               className="ml-2"
@@ -46,7 +45,8 @@ const Body: FC<BodyProps> = ({ data, columns, actions, showFooter }) => {
               {action.icon}
             </button>
           ))}
-      </th>
+        </th>
+      )}
     </tr>
   );
 
